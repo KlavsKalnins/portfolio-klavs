@@ -32,6 +32,11 @@
     magic-string "^0.26.5"
     svelte-hmr "^0.15.0"
 
+"@vladmandic/face-api@^1.7.6":
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/@vladmandic/face-api/-/face-api-1.7.6.tgz#3f5e7ad0cdb21199605836e6a1570d2db2ce037b"
+  integrity sha512-fpDRxKPYr1Isrjx1UoUdno5cWvFrpjZ3t6MJiUH9Xgs3SX/JZw3rbhuMNlu6TumjbUXQsP+fH0CkPU2TyKQ+Lw==
+
 debug@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
