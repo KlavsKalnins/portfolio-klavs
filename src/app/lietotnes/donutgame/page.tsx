@@ -12,8 +12,10 @@ export default function MergingSnacks() {
   });
 
   return (
-    <Unity unityProvider={unityProvider}
-    className='aspect-unity w-full h-screen'
+    <Unity
+      unityProvider={unityProvider}
+      devicePixelRatio={3}
+      className='aspect-unity w-full h-screen'
     />
   )
 }

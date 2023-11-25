@@ -22,7 +22,9 @@ export default function Latvian() {
           <div>Lietotnes</div>
         </div>
       </div> */}
-        <Unity unityProvider={unityProvider}
+        <Unity
+          unityProvider={unityProvider}
+          devicePixelRatio={3}
           className='h-[80vh] aspect-unity'
         />
 
