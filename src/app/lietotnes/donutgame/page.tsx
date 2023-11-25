@@ -5,10 +5,10 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 export default function MergingSnacks() {
 
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/lietotnes/webgl/merging_snacks/webgl.loader.js",
-    dataUrl: "/lietotnes/webgl/merging_snacks/webgl.data",
-    frameworkUrl: "/lietotnes/webgl/merging_snacks/webgl.framework.js",
-    codeUrl: "/lietotnes/webgl/merging_snacks/webgl.wasm",
+    loaderUrl: "/lietotnes/webgl/donutgame/webgl.loader.js",
+    dataUrl: "/lietotnes/webgl/donutgame/webgl.data",
+    frameworkUrl: "/lietotnes/webgl/donutgame/webgl.framework.js",
+    codeUrl: "/lietotnes/webgl/donutgame/webgl.wasm",
   });
 
   return (
