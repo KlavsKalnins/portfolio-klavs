@@ -12,30 +12,40 @@ const profiles: ProfileCardProps[] = [
   {
     name: 'Oskars',
     image: '/jam/20231222_153104.jpg',
-    description: 'Man patīk sņaukt skābi',
+    description: 'Concept Artist',
   },
   {
     name: 'Maigurs',
     image: '/jam/GGJ_glita_bilde.jpg',
-    description: 'Pēc futbola komandas man bērni pietika',
+    description: '3D Artist/Animator',
   },
   {
     name: 'Klāvs',
     image: '/jam/klavs.jpeg',
-    description: 'Esmu smuks mērkaķis un man patīk kaķi',
+    description: 'Programmer',
+  },
+  {
+    name: 'Mārtiņš Kozels',
+    image: '/jam/martins.jpg',
+    description: '3D Artist',
+  },
+  {
+    name: 'Mārtiņš Zieds',
+    image: '/jam/martins_zieds.jpg',
+    description: 'Sound Designer',
   },
 ];
 
 const ProfileCard: FC<ProfileCardProps> = ({ name, image, description }) => {
   return (
     <div className="profile-card gap-2 flex flex-col">
-      <div className="w-48 h-48 mx-auto overflow-hidden rounded-full border-4 border-red-700/60">
+      <div className="w-56 h-56 mx-auto overflow-hidden rounded-full border-4 border-red-700/60">
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>
-      <div className="w-48 flex justify-center flex-col">
+      <div className="w-56 flex justify-center flex-col">
         <h2 className="text-center max-w-full mx-auto underline text-xl font-bold opacity-80 text-red-600">{name}</h2>
         <div className="h-1"></div>
-        {/* <p className="text-center max-w-full mx-auto italic text-gray-400 text-base/5">{description}</p> */}
+        <p className="text-center max-w-full mx-auto italic text-gray-400 text-base/5">{description}</p>
       </div>
     </div>
   );
