@@ -45,7 +45,7 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, image, description }) => {
       <div className="w-56 flex justify-center flex-col">
         <h2 className="text-center max-w-full mx-auto underline text-xl font-bold opacity-80 text-red-600">{name}</h2>
         <div className="h-1"></div>
-        <p className="text-center max-w-full mx-auto italic text-gray-400 text-base/5">{description}</p>
+        <p className="text-center max-w-full mx-auto italic text-gray-200 font-bold text-base/5">{description}</p>
       </div>
     </div>
   );
@@ -54,10 +54,15 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, image, description }) => {
 export default function Jam() {
   return (
     <main className="flex min-h-screen flex-col items-center gap-2">
-      <div className="h-20 flex justify-center items-center">
-        <h1 className="text-4xl font-bold text-red-600">RedStar Colosseum: Iron Legion</h1>
+      <img
+        src="/jam/background.png" // Replace with the actual image URL
+        alt="Background"
+        className="w-full h-full object-cover absolute z-0 opacity-20"
+      />
+      <div className="h-20 flex justify-center items-center z-10">
+        <h1 className="text-4xl font-bold text-red-600 z-10">RedStar Colosseum: Iron Legion</h1>
       </div>
-      <div className="w-full h-full flex flex-wrap justify-center gap-10">
+      <div className="w-full h-full flex flex-wrap justify-center gap-10 z-10">
         {profiles.map((profile, index) => (
           <ProfileCard key={index} {...profile} />
         ))}
