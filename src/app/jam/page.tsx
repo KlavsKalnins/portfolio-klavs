@@ -26,7 +26,7 @@ const profiles: ProfileCardProps[] = [
   },
   {
     name: 'Mārtiņš Kozels',
-    image: '/jam/martins.jpg',
+    image: '/jam/martinsk.jpg',
     description: '3D Artist',
   },
   {
