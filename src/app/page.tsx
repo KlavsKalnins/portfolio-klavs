@@ -15,7 +15,8 @@ export default function Home() {
           <div>Lietotnes</div>
           <div>Lietotnes</div>
         </div> */}
-        <a className='text-xl'>Klāvs Kalniņš</a>
+        {/* <p className='text-base'>Creatively Versatile Programmer</p> */}
+        <p className='text-xl'>Klāvs Kalniņš</p>
         <a className='text-lg underline' href='https://www.linkedin.com/in/kl%C4%81vs-kalni%C5%86%C5%A1-877633207/'>Linkedin</a>
       </div>
 
