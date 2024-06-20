@@ -1,4 +1,4 @@
-import { useState } from "react"; //
+import { useState } from "react";
 import { generateResponse } from "./openai";
 import { isTesting } from "./logic";
 
@@ -21,6 +21,7 @@ export const Prompting: React.FC<PromptingProps> = ({ onComplete }) => {
 
   return (
     <div className="w-full flex flex-col gap-4">
+      <p>Prompt a story or write your own sentence to speedtype</p>
       <textarea
         value={inputText}
         onChange={(e) => setinputText(e.target.value)}
@@ -41,11 +42,9 @@ export const Prompting: React.FC<PromptingProps> = ({ onComplete }) => {
           disabled={inputText.length <= GENERATE_MIN_LENGTH}
           onClick={() => onComplete(inputText)}
         >
-          Generate Dummy
+          Typewrite your sentence
         </button>
       )}
-
-      {/* <p className="text-white">{generatedResponse}</p> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react"; // 
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 
 interface TypingGameProps {
   fullText: string;

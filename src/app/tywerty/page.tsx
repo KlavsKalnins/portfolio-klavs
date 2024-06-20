@@ -1,4 +1,4 @@
-"use client"; //d
+"use client";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -71,7 +71,7 @@ export default function Home() {
             <div className="w-full bg-red-400/0 items-center justify-center hidden sm:flex ">
               <img
                 src="/tywerty/keyboard_logo_v.png"
-                className="w-1/2 h-auto hover:rotate-[10deg] duration-500 hover:translate-x-20 brightness-75 hover:brightness-110"
+                className="w-1/3 h-auto hover:rotate-[10deg] duration-500 hover:translate-x-20 brightness-75 hover:brightness-110"
               />
             </div>
           </div>
