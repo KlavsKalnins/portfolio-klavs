@@ -1,4 +1,4 @@
-"use client" //d
+"use client"; //d
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -25,7 +25,7 @@ export default function Home() {
   }, [generatedResponse]);
 
   function handlePromptResponse(text) {
-    const sanatizedTextForGame = text.replace(/\n/g, ' ');
+    const sanatizedTextForGame = text.replace(/\n/g, " ");
     setgeneratedResponse(sanatizedTextForGame);
     setgameState(GameState.Playing);
   }
@@ -39,17 +39,23 @@ export default function Home() {
   }
   return (
     <main
-      className={`flex min-h-screen flex-col items-center gap-8 p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center gap-8 p-8 sm:p-24 ${inter.className}`}
     >
       {gameState === GameState.Prompting && (
         <>
-          <div className="w-full flex justify-between min-h-[500px]">
+          <div className="w-full flex flex-col sm:flex-row justify-between min-h-[450px] sm:min-h-[500px]">
+            <div className="w-full bg-red-400/0 items-center justify-center flex-col sm:flex-row sm:hidden">
+              <img
+                src="/tywerty/keyboard_logo.png"
+                className="w-full h-auto hover:rotate-[1deg] duration-500 hover:translate-y-4 brightness-75 hover:brightness-110"
+              />
+            </div>
             <div className="w-full bg-red-400/0">
               <div className="h-8"></div>
               <div className="w-full justify-center items-center flex flex-col">
                 <h1 className="font-bold text-6xl">{appTitle}</h1>
                 <div className="h-2"></div>
-                <p className="font-medium ml-14">
+                <p className="font-medium sm:ml-14">
                   Welcome to {appTitle}, the ultimate playground for writers and
                   speed demons! Here, you can:
                 </p>
@@ -62,10 +68,10 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            <div className="w-full bg-red-400/0 flex items-center justify-end">
+            <div className="w-full bg-red-400/0 items-center justify-center hidden sm:flex ">
               <img
-                src="/tywerty/keyboard_logo.png"
-                className="w-full h-auto rotate-90 hover:rotate-[110deg] duration-500 hover:translate-x-20 brightness-75 hover:brightness-110"
+                src="/tywerty/keyboard_logo_v.png"
+                className="w-1/2 h-auto hover:rotate-[10deg] duration-500 hover:translate-x-20 brightness-75 hover:brightness-110"
               />
             </div>
           </div>
