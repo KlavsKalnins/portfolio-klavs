@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+import OpenAI from "openai"; // 
 
 export async function generateResponse(userContent: string): Promise<string | null> {
     const openai = new OpenAI({
