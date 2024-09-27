@@ -17,14 +17,14 @@ const profiles: CardProps[] = [
     imageStyle: "scale-[105%] ml-[10px] mt-[-4px]",
   },
   {
-    headerText: "0.0.1 = 14:00 - Kartings.lv Kartinga Halle",
+    headerText: "0.0.1 = 14:00 - Kartings.lv",
     headerHref:
       "https://www.google.com/maps/place/Kartings.lv+Kartinga+Halle/@56.9757236,24.1607293,17z/data=!4m6!3m5!1s0x46eecf05506c65ad:0xe4a7e388505727b1!8m2!3d56.9757207!4d24.1633096!16s%2Fg%2F11vsv4cz1x?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D",
     image: "/bday/spaceRacer.jpg",
     imageStyle: "",
   },
   {
-    headerText: "0.0.2 = 16:00 - Picu Meistarklase Kuršos",
+    headerText: "0.0.2 = 16:00 - Picu Meistarklase",
     headerHref: "https://maps.app.goo.gl/sjEt1ofTzoNFgJvNA",
     image: "/bday/pizza.png",
     imageStyle: "scale-[107%]",
