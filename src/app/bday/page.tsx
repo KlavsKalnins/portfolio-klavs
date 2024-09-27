@@ -47,14 +47,24 @@ export default function Page() {
     //   </div>
     // </main>
 
-    <main className="flex h-full flex-col items-center justify-between p-4 bg-white">
+    <main className="flex h-full flex-col items-center justify-between p-4 bg-white max-w-[600px]">
       <div className="z-10 h-full max-w-5xl w-full items-center justify-between font-mono text-sm flex flex-col gap-2">
-        <a className="w-full flex items-center gap-2" href={profiles[cardIndex].headerHref}>
+        <a
+          className="w-full flex items-center gap-2"
+          href={profiles[cardIndex].headerHref}
+        >
           <img src="/bday/location.png" className="w-6 h-auto" />
-          <p
-            className="text-red-500 font- text-"
-          >
+          <p className="text-red-500 font- text-">
             {profiles[cardIndex].headerText}
+          </p>
+        </a>
+        <a
+          className="w-full flex items-center gap-2"
+          href="https://forms.gle/EL96hskk7LPjs8Yp7"
+        >
+          <img src="/bday/excel.png" className="w-6 h-auto" />
+          <p className="text-red-500">
+            Click me! and fill out this form once
           </p>
         </a>
 
