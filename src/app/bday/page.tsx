@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 interface CardProps {
@@ -37,50 +38,150 @@ const profiles: CardProps[] = [
   },
 ];
 
-export default function Page() {
-  const [cardIndex, setcardIndex] = useState(0);
-  return (
-    // <main className="flex h-screen flex-col items-center gap-2 p-2 bg-white">
-    //   <div className="w-full h-[100%] bg-black rounded-lg">
-    //     <p>gjh</p>
-    //     <div className="w-10 h-20 bg-red-500">a</div>
-    //   </div>
-    // </main>
+const shuffleArray = (array: string[]) => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap
+  }
+  console.log("shuffled");
+  console.log(
+    shuffledArray.map((prompt) => `"${prompt}"`).join(",\n")
+  );
+  return shuffledArray;
+};
 
+const copyFromGoogleForum: string = `
+  <div class="PlcjTc"><div class="NC79P">I have</div><div class="NC79P">I will</div><div class="NC79P">I should</div></div>
+`
+
+const promptsTruthsAndLies: string[] = [
+  "Add final here",
+  "Add final here2",
+  "Add final here3",
+];
+
+export default function Page() {
+  const [promptsTruthsAndLies, setPromptsTruthsAndLies] = useState<string[]>([]);
+
+  const [cardIndex, setcardIndex] = useState(0);
+  const [truthAndLiesEnabled, settruthAndLiesEnabled] = useState(false);
+  const [truthAndLiesIndex, settruthAndLiesIndex] = useState(0);
+
+  useEffect(() => {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = copyFromGoogleForum;
+
+    // Select all divs with class NC79P (ignore classes, rely on the structure)
+    const divs = tempDiv.querySelectorAll('div.NC79P');
+
+    // Extract text content from each NC79P div
+    const extractedText = Array.from(divs).map(div => div.textContent || '');
+
+    // Update the state with the extracted text
+    console.log("From google docs")
+    console.log(extractedText)
+    shuffleArray(extractedText);
+    // Update the state with the extracted text
+    setPromptsTruthsAndLies(extractedText);
+  }, []);
+
+  return (
     <main className="flex h-full flex-col items-center justify-between p-4 bg-white max-w-[600px]">
       <div className="z-10 h-full max-w-5xl w-full items-center justify-between font-mono text-sm flex flex-col gap-2">
-        <a
-          className="w-full flex items-center gap-2"
-          href={profiles[cardIndex].headerHref}
-        >
-          <img src="/bday/location.png" className="w-6 h-auto" />
-          <p className="text-red-500 font- text-">
-            {profiles[cardIndex].headerText}
-          </p>
-        </a>
-        <a
-          className="w-full flex items-center gap-2"
-          href="https://forms.gle/EL96hskk7LPjs8Yp7"
-        >
-          <img src="/bday/excel.png" className="w-6 h-auto" />
-          <p className="text-red-500">
-            Click me! and fill out this form once
-          </p>
-        </a>
+        {truthAndLiesEnabled && (
+          <>
+            <div className="relative w-full h-[100%] bg-black rounded-lg p-8 min-h-[70vh] flex flex-col justify-between">
+              <div className="absolute top-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute top-4 left-4 w-10 h-10 flex justify-center items-center text-xl font-bold"><p>{truthAndLiesIndex}</p></div>
+              <div className="absolute top-4 right-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute top-4 right-4 w-10 h-10 flex justify-center items-center text-xl font-bold"><p>{truthAndLiesIndex}</p></div>
+              <div className="absolute bottom-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute bottom-4 left-4 w-10 h-10 flex justify-center items-center text-xl font-bold"><p>{truthAndLiesIndex}</p></div>
+              <div className="absolute bottom-4 right-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute bottom-4 right-4 w-10 h-10 flex justify-center items-center text-xl font-bold"><p>{truthAndLiesIndex}</p></div>
 
-        <div className="relative w-full h-[100%] bg-black rounded-lg p-8">
-          <div className="absolute top-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
-          <div className="absolute top-4 right-4 w-10 h-10 bg-red-500 rotate-45"></div>
-          <div className="absolute bottom-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="h-20"></div>
+              <p className="text-xl text-center">{promptsTruthsAndLies[truthAndLiesIndex]}</p>
+              <div className="w-full flex justify-center gap-4">
+                <div
+                  className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
+                  onClick={() => {
+                    settruthAndLiesIndex(
+                      truthAndLiesIndex <= 0 ? 0 : truthAndLiesIndex - 1
+                    );
+                  }}
+                >
+                  Prev Truth
+                </div>
+                <div
+                  className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
+                  onClick={() => {
+                    settruthAndLiesIndex(
+                      truthAndLiesIndex >= promptsTruthsAndLies.length - 1
+                        ? promptsTruthsAndLies.length - 1
+                        : truthAndLiesIndex + 1
+                    );
+                  }}
+                >
+                  Next Truth
+                </div>
+              </div>
+            </div>
+          </>
+        )}
 
+        {!truthAndLiesEnabled && (
+          <>
+            <a
+              className="w-full flex items-center gap-2"
+              href={profiles[cardIndex].headerHref}
+            >
+              <img src="/bday/location.png" className="w-6 h-auto" />
+              <p className="text-red-500 font- text-">
+                {profiles[cardIndex].headerText}
+              </p>
+            </a>
+            <a
+              className="w-full flex items-center gap-2"
+              href="https://forms.gle/EL96hskk7LPjs8Yp7"
+            >
+              <img src="/bday/excel.png" className="w-6 h-auto" />
+              <p className="text-red-500">
+                Click me! and fill out this form once
+              </p>
+            </a>
+            <div className="relative w-full h-[100%] bg-black rounded-lg p-8">
+              <div className="absolute top-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute top-4 right-4 w-10 h-10 bg-red-500 rotate-45"></div>
+              <div className="absolute bottom-4 left-4 w-10 h-10 bg-red-500 rotate-45"></div>
+
+              <div
+                className={`absolute w-[55%] h-[34%] top-[52%] left-[23%] rounded-full z-0 bg-center bg-cover ${
+                  profiles[cardIndex].imageStyle &&
+                  profiles[cardIndex].imageStyle
+                }`}
+                style={{ backgroundImage: `url(${profiles[cardIndex].image})` }}
+              ></div>
+              <img
+                src="/bday/6_okt.png"
+                className="relative z-50 w-full h-auto"
+              />
+            </div>
+          </>
+        )}
+
+        {cardIndex >= 3 && (
           <div
-            className={`absolute w-[55%] h-[34%] top-[52%] left-[23%] rounded-full z-0 bg-center bg-cover ${
-              profiles[cardIndex].imageStyle && profiles[cardIndex].imageStyle
-            }`}
-            style={{ backgroundImage: `url(${profiles[cardIndex].image})` }}
-          ></div>
-          <img src="/bday/6_okt.png" className="relative z-50 w-full h-auto" />
-        </div>
+            className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
+            onClick={() => {
+              settruthAndLiesEnabled(!truthAndLiesEnabled);
+            }}
+          >
+            {!truthAndLiesEnabled ? "Play Truths" : "Close Truths"}
+          </div>
+        )}
+
         <div
           className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
           onClick={() => {
