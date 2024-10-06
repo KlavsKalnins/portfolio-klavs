@@ -102,7 +102,7 @@ export default function Page() {
   // }, []);
 
   const currentDate = new Date();
-  const targetDate = new Date("2024-10-06T17:00:00");
+  const targetDate = new Date("2024-10-06T12:00:00");
 
   return (
     <main className="flex h-full flex-col items-center justify-between p-4 bg-white max-w-[600px]">
