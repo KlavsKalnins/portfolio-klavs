@@ -208,7 +208,7 @@ export default function Page() {
           </>
         )}
 
-        {cardIndex >= 3 && currentDate >= targetDate && (
+        {/* {cardIndex >= 3 && currentDate >= targetDate && (
           <div
             className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
             onClick={() => {
@@ -217,7 +217,7 @@ export default function Page() {
           >
             {!truthAndLiesEnabled ? "Play Truths" : "Close Truths"}
           </div>
-        )}
+        )} */}
         {!truthAndLiesEnabled && (
           <div
             className="bg-red-900 p-4 rounded-3xl font-extrabold text-xl cursor-pointer"
