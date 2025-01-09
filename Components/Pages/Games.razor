@@ -1,0 +1,100 @@
+@page "/games"
+
+<PageTitle>Games</PageTitle>
+
+<h1>Games</h1>
+
+<div class="games-container">
+    @foreach (var game in games)
+    {
+        <a href="@game.Url" class="game-card">
+            <img src="@game.ImageUrl" alt="@game.Title" />
+            <div class="game-info">
+                <h3>@game.Title</h3>
+                <p>@game.Description</p>
+                <div class="downloads">
+                    <span>Downloads: @game.Downloads</span>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+<style>
+    .games-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .game-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        max-width: 400px;
+    }
+
+    .game-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .game-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .game-info {
+        padding: 1.5rem;
+    }
+
+    .game-info h3 {
+        margin: 0 0 1rem 0;
+    }
+
+    .game-info p {
+        margin: 0 0 1rem 0;
+        color: #666;
+    }
+
+    .downloads {
+        font-size: 0.9rem;
+        color: #888;
+    }
+</style>
+
+@code {
+    private List<Game> games = new List<Game>
+    {
+        new Game
+        {
+        Title = "Sample Game 1",
+        Description = "An exciting adventure game with multiple levels.",
+        Downloads = 1500,
+        ImageUrl = "/images/partea.jpg",
+        Url = "/games/sample-game-1"
+        },
+        new Game
+        {
+        Title = "Sample Game 1",
+        Description = "An exciting adventure game with multiple levels.",
+        Downloads = 1500,
+        ImageUrl = "/images/donutgame.png",
+        Url = "/games/sample-game-1"
+        },
+    };
+
+    public class Game
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Downloads { get; set; }
+        public string ImageUrl { get; set; }
+        public string Url { get; set; }
+    }
+}
