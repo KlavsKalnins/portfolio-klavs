@@ -2,5 +2,5 @@ namespace klavsDomain.Services;
 
 public interface IOpenAIService
 {
-    Task<string> GetOpenAIResponse(string request);
+    Task<AIResponse> GetOpenAIResponse(string request, int? foundMatchesIndex = null);
 }

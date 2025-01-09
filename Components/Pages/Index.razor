@@ -13,42 +13,95 @@
 
 <div class="chat-container">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" @bind="userQuestion" placeholder="Get to know me btn-primary asking questions.." />
-        <button class="btn btn-primary" @onclick="AskQuestion">Ask</button>
+        <p>@isLoading</p>
+        <input disabled="@isLoading" type="text" class="form-control" @bind="userQuestion" @bind:event="oninput"
+            @onkeypress="HandleKeyPress" placeholder="Get to know me by asking questions.." />
+        <button class="btn btn-primary" @onclick="AskQuestion" disabled="@isLoading">
+            @if (isLoading)
+            {
+                <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                <span>Loading...</span>
+            }
+            else
+            {
+                <span>Ask</span>
+            }
+        </button>
     </div>
 
-    @if (!string.IsNullOrEmpty(response))
+    @if (aiResponse != null)
     {
         <div class="response-box mt-3">
-            <p>@response</p>
+            <p><strong>Answer:</strong> @aiResponse.Answer</p>
+            @if (!string.IsNullOrEmpty(aiResponse.Hint))
+            {
+                <p><small class="text-muted">Hint: @aiResponse.Hint</small></p>
+                @* <p><small class="text-muted">Similarity: @aiResponse.Similarity</small></p> *@
+            }
         </div>
     }
+
+    @* @foreach (var matchIndex in foundMatchesIndex)
+    {
+        <div class="response-box mt-3">
+            <p><strong>Matched index:</strong> @matchIndex</p>
+        </div>
+    } *@
 </div>
 
 @code {
+    private bool isLoading = false;
+
     private string userQuestion = "";
     private string response = "...";
+    private AIResponse? aiResponse;
+
+    private List<int> foundMatchesIndex = new List<int>();
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !isLoading)
+        {
+            isLoading = true;
+            try
+            {
+                await AskQuestion();
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
+    }
 
     private async Task AskQuestion()
     {
+        isLoading = true;
         Console.WriteLine("User question: " + userQuestion);
         try
         {
             if (string.IsNullOrEmpty(userQuestion))
             {
                 response = "Please enter a question";
+                aiResponse = new AIResponse { Answer = "Please enter a question" };
                 return;
             }
 
             response = "Thinking...";
-
-            // Call OpenAI service and await the response
-            var result = await OpenAIService.GetOpenAIResponse(userQuestion);
-            response = result ?? "Sorry, I couldn't process that request";
+            aiResponse = await OpenAIService.GetOpenAIResponse(userQuestion);
+            foundMatchesIndex.Add(aiResponse.MatchedIndex);
+            isLoading = false;
         }
         catch (Exception ex)
         {
+            aiResponse = new AIResponse { Answer = $"Error: {ex.Message}" };
+
             response = $"Error: {ex.Message}";
+            isLoading = false;
+        }
+        finally
+        {
+            isLoading = false;
         }
     }
 }
