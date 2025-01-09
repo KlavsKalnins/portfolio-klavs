@@ -33,7 +33,7 @@ public class AIResponse
 
 public class OpenAIService : IOpenAIService
 {
-    private readonly bool IsAvailable = true;
+    private readonly bool IsAvailable = false;
     private readonly IConfiguration _configuration;
     private readonly Kernel _kernel;
     private readonly OpenAITextEmbeddingGenerationService _embeddingGen;

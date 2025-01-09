@@ -8,7 +8,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<IMovieReviewService, MovieReviewService>();
-builder.Services.AddScoped<IOpenAIService, OpenAIService>();
+builder.Services.AddSingleton<IOpenAIService, OpenAIService>();
+builder.Services.AddSingleton<IDictionaryEmbeddingService, DictionaryEmbeddingService>();
 
 var app = builder.Build();
 

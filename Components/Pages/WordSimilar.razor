@@ -1,0 +1,106 @@
+@page "/WordSimilar"
+@rendermode InteractiveServer
+@using klavsDomain.Services
+@inject IDictionaryEmbeddingService DictionaryEmbeddingService
+
+<PageTitle>Similar word</PageTitle>
+
+<div class="chat-container">
+    <div class="input-group mb-3">
+        <input disabled="@isLoading" type="text" class="form-control" @bind="userInput" @bind:event="oninput"
+            @onkeypress="HandleKeyPress" placeholder="Write a english word..." />
+        <button class="btn btn-warning" @onclick="AskQuestion" disabled="@isLoading">
+            @if (isLoading)
+            {
+                <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                <span>Loading...</span>
+            }
+            else
+            {
+                <span>Ask</span>
+            }
+        </button>
+    </div>
+
+    @if (responseArray != null)
+    {
+        @for (int i = 0; i < responseArray.Length; i++)
+        {
+            <div class="response-box mt-3">
+            <p><strong>@(i + 1).</strong> @responseArray[i]</p>
+            </div>
+        }
+    }
+
+    @if (responseArray == null)
+    {
+        <div class="response-box mt-3">
+            <p>...</p>
+        </div>
+    }
+</div>
+
+@code {
+    private bool isLoading = false;
+
+    private string userInput = "";
+    private string[] responseArray;
+
+    private List<int> foundMatchesIndex = new List<int>();
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !isLoading)
+        {
+            isLoading = true;
+            try
+            {
+                await AskQuestion();
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
+    }
+
+    private async Task AskQuestion()
+    {
+        userInput = "";
+        isLoading = true;
+        try
+        {
+            if (string.IsNullOrEmpty(userInput))
+            {
+                responseArray = null;
+                return;
+            }
+
+            responseArray = await DictionaryEmbeddingService.CloseWords(userInput);
+            isLoading = false;
+        }
+        catch (Exception ex)
+        {
+            responseArray = null;
+            isLoading = false;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
+
+<style>
+    .chat-container {
+        max-width: 800px;
+        margin: 20px auto;
+    }
+
+    .response-box {
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+</style>

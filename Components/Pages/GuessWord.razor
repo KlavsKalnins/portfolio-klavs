@@ -1,0 +1,111 @@
+@page "/GuessWord"
+@rendermode InteractiveServer
+@using klavsDomain.Services
+@inject IDictionaryEmbeddingService DictionaryEmbeddingService
+
+<PageTitle>Similar word</PageTitle>
+
+<div class="chat-container">
+    <div class="input-group mb-3">
+        <input disabled="@isLoading" type="text" class="form-control" @bind="userInput" @bind:event="oninput"
+            @onkeypress="HandleKeyPress" placeholder="Write a english word..." />
+        <button class="btn btn-warning" @onclick="AskQuestion" disabled="@isLoading">
+            @if (isLoading)
+            {
+                <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                <span>Loading...</span>
+            }
+            else
+            {
+                <span>Try</span>
+            }
+        </button>
+    </div>
+
+    @foreach (var item in results)
+    {
+        var similarityPercentage = Math.Min(100, (item.Similarity / 4000.0) * 100);
+        var redValue = (int)(255 * (similarityPercentage / 100));
+        var greenValue = 255 - redValue;
+        var backgroundColor = $"rgb({redValue}, {greenValue}, 0)";
+        var fillPercentage = similarityPercentage;
+        @if (item.DidGuess)
+        {
+            <div class="response-box mt-3">
+                <p><strong>Congratulation! The word is @item.Word</strong></p>
+                <div class="response-box mt-3" style="background-color: @backgroundColor; width: @fillPercentage%">
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="response-box mt-3">
+                <p><strong> @item.Similarity</strong> @item.Word</p>
+                <div class="response-box mt-3" style="background-color: @backgroundColor; width: @fillPercentage%">
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private bool isLoading = false;
+
+    private string userInput = "";
+    private List<Services.DictionaryEmbeddingService.GuessWordResult> results = new();
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !isLoading)
+        {
+            isLoading = true;
+            try
+            {
+                await AskQuestion();
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
+    }
+
+    private async Task AskQuestion()
+    {
+        userInput = "";
+        isLoading = true;
+        try
+        {
+            if (string.IsNullOrEmpty(userInput))
+            {
+                return;
+            }
+
+            var resultResponse = await DictionaryEmbeddingService.GuessWord(userInput);
+            results.Insert(0, resultResponse); // Insert at the front of the list
+                                               // results.Add(resultResponse);
+            isLoading = false;
+        }
+        catch (Exception ex)
+        {
+            isLoading = false;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
+
+<style>
+    .chat-container {
+        max-width: 800px;
+        margin: 20px auto;
+    }
+
+    .response-box {
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+</style>
