@@ -13,10 +13,10 @@
 
 <div class="chat-container">
     <div class="input-group mb-3">
-        <p>@isLoading</p>
+        @* <p>@isLoading</p> *@
         <input disabled="@isLoading" type="text" class="form-control" @bind="userQuestion" @bind:event="oninput"
             @onkeypress="HandleKeyPress" placeholder="Get to know me by asking questions.." />
-        <button class="btn btn-primary" @onclick="AskQuestion" disabled="@isLoading">
+        <button class="btn btn-warning" @onclick="AskQuestion" disabled="@isLoading">
             @if (isLoading)
             {
                 <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>

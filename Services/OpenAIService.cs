@@ -33,6 +33,7 @@ public class AIResponse
 
 public class OpenAIService : IOpenAIService
 {
+    private readonly bool IsAvailable = true;
     private readonly IConfiguration _configuration;
     private readonly Kernel _kernel;
     private readonly OpenAITextEmbeddingGenerationService _embeddingGen;
@@ -68,6 +69,7 @@ public class OpenAIService : IOpenAIService
 
     public OpenAIService(IConfiguration configuration)
     {
+        if (!IsAvailable) return;
         _configuration = configuration;
 
         string apikey = _configuration["AI:OpenAI:APIKey"]!;
@@ -87,6 +89,15 @@ public class OpenAIService : IOpenAIService
 
     public async Task<AIResponse> GetOpenAIResponse(string input, int? foundMatchesIndex = null)
     {
+        if (!IsAvailable)
+        {
+            return new AIResponse
+            {
+                Question = "",
+                Answer = "AI Service disabled",
+                Hint = "this service has been disabled",
+            };
+        }
         float similarityThreshold = 0.5f;
         float levelSimilarityThreshold = 0.6f;
 
