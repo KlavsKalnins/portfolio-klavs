@@ -222,3 +222,7 @@ public class DictionaryEmbeddingService : IDictionaryEmbeddingService
         return guessWordResult;
     }
 }
+
+
+// https://nlp.stanford.edu/projects/glove/
+// https://github.com/stanfordnlp/GloVe
