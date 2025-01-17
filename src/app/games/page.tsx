@@ -11,7 +11,12 @@ export default function Games() {
         <h1 className="text-4xl font-bold text-white/70 z-10">Games</h1>
       </div>
       <div className="w-full h-full flex flex-wrap justify-center gap-10 z-10">
-        <Link href={"/games/partea"} className="w-20 h-20 bg-orange-600 font-bold flex justify-center items-center rounded-md">Partea</Link>
+        <Link
+          href={"/games/partea"}
+          className="w-40 h-40 bg-orange-600 font-bold flex justify-center items-center rounded-md"
+        >
+          <p className="text-center p-2">Partea</p>
+        </Link>
       </div>
     </main>
   )
