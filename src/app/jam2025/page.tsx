@@ -26,11 +26,11 @@ const profiles: ProfileCardProps[] = [
   },
   {
     name: "Katrīna",
-    image: "/jam2025/katrina.jpeg",
+    image: "/jam2025/katri.jpg",
     description: "Programmer",
   },
   {
-    name: "Klāvs",
+    name: "Klāvs Kalniņš",
     image: "/jam2025/klavs.jpg",
     description: "Programmer - Unity",
   },
