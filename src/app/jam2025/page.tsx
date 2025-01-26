@@ -91,7 +91,7 @@ export default function Jam() {
 
 
         <a
-          href="/jam2025/bubblyfriends.apk"
+          href="https://testflight.apple.com/join/JnpuKTWC"
           download
           className="text-white-600 hover:text-orange-100 hover:text-white-500 font-bold underline"
         >
