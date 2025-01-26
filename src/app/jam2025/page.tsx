@@ -10,17 +10,17 @@ interface ProfileCardProps {
 
 const profiles: ProfileCardProps[] = [
   {
-    name: "Mārtiņš Kolizs",
+    name: "Mārtiņš Kozels",
     image: "/jam2025/martins.jpg",
     description: "Sound Designer",
   },
   {
-    name: "Maigurs",
+    name: "Maigurs Prūsāns",
     image: "/jam2025/maigurs.jpg",
     description: "3D Artist/Animator",
   },
   {
-    name: "Artūrs",
+    name: "Artūrs Vanags",
     image: "/jam2025/arturs.jpg",
     description: "Backend Developer",
   },
