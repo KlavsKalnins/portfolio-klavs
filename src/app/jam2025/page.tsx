@@ -77,11 +77,11 @@ export default function Jam() {
       <div className="h-20"></div>
       <div className="relative flex justify-center flex-col gap-2">
         <a
-          href="/jam2025/bubblyfriends.apk"
+          href="https://globalgamejam.org/games/2025/bubbly-friends-6"
           download
           className="hover:text-orange-100 font-bold underline"
         >
-          Download Android
+          Bubbly friends play!
         </a>
 
         <p className="hover:text-orange-100 font-bold underline">
@@ -90,13 +90,13 @@ export default function Jam() {
         </p>
 
 
-        <a
+        {/* <a
           href="https://testflight.apple.com/join/JnpuKTWC"
           download
           className="text-white-600 hover:text-orange-100 hover:text-white-500 font-bold underline"
         >
           Cheak my upcomming game Partea on IOS
-        </a>
+        </a> */}
       </div>
     </main>
   );
