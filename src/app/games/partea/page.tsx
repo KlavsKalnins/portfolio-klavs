@@ -57,22 +57,22 @@ export default function GamePartea() {
         {/* Policy Button */}
         <Link
           href="/games/partea/policy"
-          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full pointer-events-none opacity-50"
         >
-          <h3 className="text-xl font-bold text-white/80 text-center">Play</h3>
+          <h3 className="text-xl font-bold text-white/80 text-center">Play Soon!</h3>
         </Link>
 
         {/* Terms of Service Button */}
         <Link
           href="/games/partea/TermsOfService"
-          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center  w-full"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center  w-full pointer-events-none opacity-50"
         >
           <h3 className="text-xl font-bold text-white/80 text-center">Join Discord</h3>
         </Link>
       </div>
 
       {/* Scrolling Section */}
-      <div className="mt-20 w-full max-w-4xl px-4 z-10" style={{
+      <div className="mt-20 w-full max-w-4xl z-10" style={{
           width: '90vw', // Match card width
           maxWidth: '600px', // Match card max width
         }}>
@@ -113,6 +113,7 @@ export default function GamePartea() {
         </div>
         */}
       </div>
+      <div className="h-10"></div>
     </main>
   );
 }
