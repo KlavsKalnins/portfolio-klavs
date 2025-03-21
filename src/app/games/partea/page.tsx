@@ -1,9 +1,5 @@
 import Link from "next/link";
 
-// #063636
-// #FFBEA9
-// #063636 - text
-
 export default function GamePartea() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-[#063636] overflow-hidden">
@@ -16,7 +12,8 @@ export default function GamePartea() {
       </div>
 
       {/* Card Section */}
-      <div className="relative bg-[#FFBEA9] backdrop-blur-md rounded-lg shadow-lg border border-white/10 flex flex-col justify-between items-center p-12 z-10"
+      <div
+        className="relative bg-[#FFBEA9] backdrop-blur-md rounded-lg shadow-lg border border-white/10 flex flex-col justify-between items-center p-12 z-10"
         style={{
           width: '90vw', // Full width minus some padding for mobile
           maxWidth: '600px', // Max width based on your SVG dimensions
@@ -29,7 +26,7 @@ export default function GamePartea() {
           <img
             src="/partea/card_line_art.svg"
             alt="Card Line Art"
-            className="w-full h-full object-contain p-2 fill-red-500"
+            className="w-full h-full object-contain p-2"
           />
         </div>
 
@@ -50,24 +47,35 @@ export default function GamePartea() {
         </div>
       </div>
 
-      {/* Buttons */}
-      <div className="mt-8 flex flex-row gap-4 z-10">
+      <div
+        className="mt-8 flex gap-4 w-full"
+        style={{
+          width: '90vw', // Match card width
+          maxWidth: '600px', // Match card max width
+        }}
+      >
+        {/* Policy Button */}
         <Link
-          href="/games/partea/play"
-          className="w-48 h-12 bg-orange-600 font-bold flex justify-center items-center rounded-md text-white hover:bg-orange-700 transition-colors"
+          href="/games/partea/policy"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full"
         >
-          Play Now
+          <h3 className="text-xl font-bold text-white/80 text-center">Play</h3>
         </Link>
+
+        {/* Terms of Service Button */}
         <Link
-          href="/games/partea/how-to-play"
-          className="w-48 h-12 bg-transparent border border-orange-600 font-bold flex justify-center items-center rounded-md text-orange-600 hover:bg-orange-600 hover:text-white transition-colors"
+          href="/games/partea/TermsOfService"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center  w-full"
         >
-          How to Play
+          <h3 className="text-xl font-bold text-white/80 text-center">Join Discord</h3>
         </Link>
       </div>
 
       {/* Scrolling Section */}
-      <div className="mt-20 w-full max-w-4xl px-4 z-10">
+      <div className="mt-20 w-full max-w-4xl px-4 z-10" style={{
+          width: '90vw', // Match card width
+          maxWidth: '600px', // Match card max width
+        }}>
         <h2 className="text-2xl font-bold text-white/80 mb-6">More Information</h2>
 
         {/* Privacy Policy and Terms of Service */}
@@ -89,7 +97,8 @@ export default function GamePartea() {
         </div>
 
         {/* Card Examples */}
-        <div className="mt-12">
+        {/*
+         <div className="mt-12">
           <h3 className="text-2xl font-bold text-white/80 mb-6">Card Examples</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {Array.from({ length: 8 }).map((_, index) => (
@@ -102,6 +111,7 @@ export default function GamePartea() {
             ))}
           </div>
         </div>
+        */}
       </div>
     </main>
   );
