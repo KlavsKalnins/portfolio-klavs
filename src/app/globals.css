@@ -25,3 +25,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.svg-container svg {
+  fill: orange; /* Colors the circle */
+  stroke: black; /* Colors the outline */
+  stroke-width: 3;
+}
