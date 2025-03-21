@@ -21,7 +21,12 @@ export default function Home() {
         </div> */}
         {/* <p className='text-base'>Creatively Versatile Programmer</p> */}
         <p className='text-xl'>Klāvs Kalniņš</p>
-        <a className='text-lg underline' href='https://www.linkedin.com/in/kl%C4%81vs-kalni%C5%86%C5%A1-877633207/'>Linkedin</a>
+        <Link
+          href="https://www.linkedin.com/in/kl%C4%81vs-kalni%C5%86%C5%A1-877633207"
+          className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-md text-white/80 hover:bg-white/20 transition-colors z-10"
+        >
+          Linkedin
+        </Link>
         <Link
           href="/games"
           className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-md text-white/80 hover:bg-white/20 transition-colors z-10"
