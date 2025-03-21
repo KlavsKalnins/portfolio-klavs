@@ -6,6 +6,13 @@ export default function GamePartea() {
       {/* Background Line Art */}
       <div className="absolute inset-0 bg-[url('/partea/line_art.svg')] bg-cover bg-center opacity-10 z-0" />
 
+      <Link
+        href="/games"
+        className="absolute top-4 left-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-md text-white/80 hover:bg-white/20 transition-colors z-10"
+      >
+        ← Back
+      </Link>
+
       {/* Header */}
       <div className="h-20 flex justify-center items-center z-10">
         <h1 className="text-4xl font-bold text-white/70 z-10">Partea</h1>

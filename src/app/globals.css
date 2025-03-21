@@ -4,14 +4,14 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 54;
+  --background-end-rgb: 6, 54, 54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
+    --background-start-rgb: 6, 54, 54;
     --background-end-rgb: 0, 0, 0;
   }
 }
@@ -29,6 +29,6 @@ body {
 
 .svg-container svg {
   fill: orange; /* Colors the circle */
-  stroke: black; /* Colors the outline */
+  stroke: rgb(6, 54, 54); /* Colors the outline */
   stroke-width: 3;
 }
