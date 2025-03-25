@@ -63,10 +63,10 @@ export default function GamePartea() {
       >
         {/* Policy Button */}
         <Link
-          href="/games/partea/policy"
-          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full pointer-events-none opacity-50"
+          href="https://play.google.com/store/apps/details?id=com.klavs.partea"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full"
         >
-          <h3 className="text-xl font-bold text-white/80 text-center">Play Soon!</h3>
+          <h3 className="text-xl font-bold text-white/80 text-center">Play On Android</h3>
         </Link>
 
         {/* Terms of Service Button */}
@@ -74,7 +74,7 @@ export default function GamePartea() {
           href="/games/partea/TermsOfService"
           className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center  w-full pointer-events-none opacity-50"
         >
-          <h3 className="text-xl font-bold text-white/80 text-center">Join Discord</h3>
+          <h3 className="text-xl font-bold text-white/80 text-center">Soon on IOS</h3>
         </Link>
       </div>
 
