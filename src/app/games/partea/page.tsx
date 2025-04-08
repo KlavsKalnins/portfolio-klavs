@@ -1,5 +1,36 @@
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Partea - Fun Party Card Game',
+  description: 'Download Partea and enjoy a night of unforgettable moments with your friends. Available now on Android and iOS!',
+  keywords: ['Partea', 'Party Game', 'Card Game', 'Mobile Game', 'Android', 'iOS', 'Klāvs Kalniņš'],
+  openGraph: {
+    title: 'Partea - Fun Party Card Game',
+    description: 'Play Partea on your mobile and turn every gathering into a party!',
+    url: 'https://klavs.lv/games/partea',
+    siteName: 'Klāvs Kalniņš Portfolio',
+    images: [
+      {
+        url: 'https://klavs.lv/partea/card_line_art.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Partea Game Preview',
+      },
+    ],
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://klavs.lv/games/partea',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+
 export default function GamePartea() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-[#063636] overflow-hidden">
