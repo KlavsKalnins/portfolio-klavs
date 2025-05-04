@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const games = [
   { href: "/games/partea", title: "Partea", description: "3 month project, since 2025", isEnabled: true },
+  { href: "/games/bubblyFriends", title: "Bubbly Friends", description: "Development from 2025 Mar till present", isEnabled: true },
   { href: "https://youtu.be/R5VZKEHlj4U", title: "Red Star: Colosseum Iron Legion", description: "48h Global Game Jam Riga 2024", isEnabled: true },
   { href: "/games/donutgame", title: "Donut Game", description: "18h project, dec 2024", isEnabled: true },
   { href: "/lietotnes/latvian", title: "Latvia Quiz", description: "2 week project, 2018", isEnabled: false },
-  { href: "/games/bubblyFriends", title: "Bubbly Friends", description: "upcoming August 2026", isEnabled: false },
 ];
 
 // Ensure even number of items by adding a "Coming Soon" card if necessary
