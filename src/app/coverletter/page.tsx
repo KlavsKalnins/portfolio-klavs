@@ -1,10 +1,79 @@
-import { COMPANY, JOB_POSITION, ME } from "../../../constante";
+"use client";
+import { useRef, useState } from "react";
+// import { COMPANY, JOB_POSITION, ME } from "../../../constante";
 
 /* eslint-disable react/no-unescaped-entities */
 export default function CoverLetter() {
+
+    const [COMPANY, setCompany] = useState("");
+    const [JOB_POSITION, setJobPosition] = useState("");
+    const [ME, setMe] = useState("Klāvs Kalniņš");
+
+    const paragraphRef = useRef<HTMLDivElement>(null);
+
+    const handleCopy = () => {
+    if (paragraphRef.current) {
+      const text = paragraphRef.current.innerText;
+      navigator.clipboard.writeText(text).catch(() => {
+        alert("Cover letter copied to clipboard!");
+      });
+    }
+  };
+
+    const coverLetterToHrRef = useRef<HTMLDivElement>(null);
+
+    const handleCopyCoverLetterToHrRef = () => {
+    if (coverLetterToHrRef.current) {
+      const text = coverLetterToHrRef.current.innerText;
+      navigator.clipboard.writeText(text).catch(() => {
+        alert("Failed to copy cover letter to clipboard.");
+      });
+    }
+  };
+
   return (
-    <main className="w-screen h-screen flex justify-center items-center p-20">
-      <div className="">
+    <main className="w-screen h-screen flex flex-col justify-center items-center p-20">
+      <div className="mb-10">
+        <button
+          onClick={handleCopy}
+          className="absolute top-0 left-0 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm"
+        >
+          Copy Cover Letter
+        </button>
+
+        <button
+          onClick={handleCopyCoverLetterToHrRef}
+          className="absolute top-10 left-0 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm"
+        >
+          Copy Cover Letter TO HR
+        </button>
+      </div>
+
+      <div className="flex flex-col gap-2 mb-10 w-full max-w-md text-black">
+        <input
+          type="text"
+          placeholder="Company"
+          value={COMPANY}
+          onChange={(e) => setCompany(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <input
+          type="text"
+          placeholder="Job Position"
+          value={JOB_POSITION}
+          onChange={(e) => setJobPosition(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={ME}
+          onChange={(e) => setMe(e.target.value)}
+          className="border p-2 rounded"
+        />
+      </div>
+
+      <div className="" ref={paragraphRef}>
         <p>
           To Hr department at {COMPANY},
           <br></br>I am writing to express my interest in{" "}
@@ -21,6 +90,7 @@ export default function CoverLetter() {
           games. I have worked on a variety of projects, ranging from massive
           multiplayer games like Zeeverse to large-scale enterprise Logistics
           and Trucking systems for Priority1 a company in the US.
+          This year in my free time I have gathered a team of 4 to create a live service game that Im proud of and You can find more about it on my LinkedIn.
           <br />
           <br />
           The main reason why I have decided to apply for this position is
@@ -42,6 +112,14 @@ export default function CoverLetter() {
           <br />
           <br />
           {ME}
+        </p>
+      </div>
+
+      <p>------------------</p>
+      <div className="" ref={coverLetterToHrRef}>
+        <p>
+          Hi, i was interested in {JOB_POSITION} role. I just sent you my cv through the application form.
+          I would be really glad if you gave me some feedback.
         </p>
       </div>
     </main>
