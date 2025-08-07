@@ -2,8 +2,8 @@
 import Link from 'next/link';
 
 const featuredProjects = [
-  { href: "/games/partea", title: "Partea", description: "3 month project, since 2025", isEnabled: true, badges: ["completed", "collaborative"] },
-  { href: "/games/bubblyFriends", title: "Bubbly Friends", description: "Development from 2025 Mar till present", isEnabled: true, badges: ["in-development", "collaborative"] },
+  { href: "/games/partea", title: "Partea", description: "NOV 2024 - DEC 2024", isEnabled: true, badges: ["completed", "collaborative"] },
+  { href: "/games/bubblyFriends", title: "Bubbly Friends", description: "Development from 2025 Feb till present", isEnabled: true, badges: ["in-development", "collaborative"] },
 ];
 
 const getBadgeStyles = (badge) => {

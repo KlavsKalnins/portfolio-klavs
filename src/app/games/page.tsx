@@ -11,7 +11,7 @@ const games = [
   { 
     href: "/games/partea", 
     title: "Partea", 
-    description: "3 month project, since 2025", 
+    description: "NOV 2024 - DEC 2024", 
     isEnabled: true,
     badges: ["completed", "in-production", "collaborative"]
   },
