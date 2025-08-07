@@ -56,9 +56,24 @@ export default function Game() {
           maxWidth: '600px', // Match card max width
         }}
       >
+        <Link
+          href="https://bubblyfriends.klavs.lv/"
+          className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full"
+        >
+          <h3 className="text-xl font-bold text-white/80 text-center">Official Page</h3>
+        </Link>
+      </div>
+
+      <div
+        className="mt-8 flex gap-4 w-full"
+        style={{
+          width: '90vw', // Match card width
+          maxWidth: '600px', // Match card max width
+        }}
+      >
         {/* Policy Button */}
         <Link
-          href="https://play.google.com/store/apps/details?id=com.klavs.unity.bubblyFriends"
+          href="https://play.google.com/store/apps/details?id=com.klavs.bubblyfriends&hl=en"
           className="p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/10 hover:bg-white/20 transition-colors flex justify-center items-center w-full"
         >
           <h3 className="text-xl font-bold text-white/80 text-center">Play On Android</h3>

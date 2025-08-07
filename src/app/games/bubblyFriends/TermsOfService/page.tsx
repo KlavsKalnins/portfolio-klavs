@@ -24,7 +24,7 @@ export default function TermsAndConditions() {
 
         {/* Back Button */}
         <Link
-          href="/games/bubblyfriends"
+          href="/games/bubblyFriends"
           className="absolute top-4 left-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-md text-white/80 hover:bg-white/20 transition-colors z-10"
         >
           ← Back
