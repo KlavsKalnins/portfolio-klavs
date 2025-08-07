@@ -37,6 +37,12 @@ export default function Home() {
           >
             LinkedIn
           </Link>
+          <Link
+            href="https://github.com/KlavsKalnins"
+            className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-md text-white/80 hover:bg-white/20 transition-colors z-10"
+          >
+            Github
+          </Link>
         </div>
       </div>
 
