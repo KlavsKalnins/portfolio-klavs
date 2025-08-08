@@ -15,7 +15,16 @@ const config: Config = {
       },
       aspectRatio: {
         unity: '9/16',
-      }
+      },
+      keyframes: {
+        beat: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.25)' },
+        },
+      },
+      animation: {
+        beat: 'beat 1s infinite ease-in-out',
+      },
     },
   },
   plugins: [],
