@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const targetDate = new Date('2025-10-06T10:55:00'); // Local time
+const targetDate = new Date('2025-09-06T10:55:00'); // Local time
 
 export default function HeartCountdown() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
