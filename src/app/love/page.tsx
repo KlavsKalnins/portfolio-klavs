@@ -20,7 +20,6 @@ export default function HeartCountdown() {
     const diff = targetDate.getTime() - now.getTime();
 
     const totalSeconds = Math.max(Math.floor(diff / 1000), 0);
-
     const days = Math.floor(totalSeconds / (3600 * 24));
     const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
     const seconds = totalSeconds % 60;
@@ -29,10 +28,10 @@ export default function HeartCountdown() {
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center text-center">
+    <div className="h-screen w-screen flex flex-col items-center justify-center text-center bg-black">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-20 h-20 text-red-500 animate-pulse"
+        className="w-20 h-20 text-red-500 animate-beat"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
