@@ -28,7 +28,7 @@ export default function HeartCountdown() {
   }
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center text-center bg-black">
+    <div className="h-screen w-screen flex flex-col items-center justify-center text-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-20 h-20 text-red-500 animate-beat"
