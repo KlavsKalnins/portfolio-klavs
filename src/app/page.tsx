@@ -2,8 +2,8 @@
 import Link from 'next/link';
 
 const featuredProjects = [
+  { href: "https://bubblyfriends.klavs.lv/", title: "Bubbly Friends", description: "Development from 2025 Feb till present", isEnabled: true, badges: ["in-development", "collaborative"] },
   { href: "/games/partea", title: "Partea", description: "NOV 2024 - DEC 2024", isEnabled: true, badges: ["completed", "collaborative"] },
-  { href: "/games/bubblyFriends", title: "Bubbly Friends", description: "Development from 2025 Feb till present", isEnabled: true, badges: ["in-development", "collaborative"] },
 ];
 
 const getBadgeStyles = (badge) => {
@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Header Section */}
       <div className="z-10 max-w-4xl w-full items-center justify-center font-mono text-center mb-16">
-        <h1 className="text-5xl font-bold text-white/90 mb-4">Klāvs Kalniņš</h1>
+        <h1 className="text-4xl lg:text-7xl font-bold text-white/90 mb-4">Klāvs Kalniņš</h1>
         <p className="text-xl text-white/70 mb-8">Fullstack Developer & Creative Technologist</p>
 
         {/* Navigation Links */}
