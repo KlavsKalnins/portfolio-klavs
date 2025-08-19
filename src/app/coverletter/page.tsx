@@ -94,7 +94,7 @@ export default function CoverLetter() {
           <br />
           <br />
           The main reason why I have decided to apply for this position is
-          because my partner is moving to Oslo this august and I am looking for
+          because Im moving to Oslo to support my partner and I am looking for
           a job that will not only allow me to relocate to Norway, but also to
           work on-site along with well minded people who enjoy their craft as
           well as has continuous growth in professional career.
