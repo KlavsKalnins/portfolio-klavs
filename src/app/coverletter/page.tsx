@@ -79,7 +79,7 @@ export default function CoverLetter() {
 <br></br><br></br>
         I appreciate you taking the time to look over my application and documents. Do not hesitate to contact me if there is any further information is needed to be required. I look forward to being in touch with you.
 <br></br><br></br>
-        Best regards,<br></br><br></br>
+        Best regards,<br></br>
         Klāvs Kalniņš
 
         </p>
