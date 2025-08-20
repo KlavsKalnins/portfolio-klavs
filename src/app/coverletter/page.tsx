@@ -88,8 +88,10 @@ export default function CoverLetter() {
       <p>------------------</p>
       <div className="" ref={coverLetterToHrRef}>
         <p>
-          Hi, i was interested in {JOB_POSITION} role. I just sent you my cv through the application form.
-          I would be really glad if you gave me some feedback.
+          Hi {JOB_POSITION},
+          Hope you're doing well!<br></br>
+          I noticed your company is hiring and I would like to share my CV and cover letter.<br></br>
+          Would greatly appreciate your time in reviewing my application. :)
         </p>
       </div>
     </main>
