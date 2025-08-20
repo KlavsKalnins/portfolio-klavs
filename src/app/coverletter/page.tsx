@@ -7,7 +7,6 @@ export default function CoverLetter() {
 
     const [COMPANY, setCompany] = useState("");
     const [JOB_POSITION, setJobPosition] = useState("");
-    const [ME, setMe] = useState("Klāvs Kalniņš");
 
     const paragraphRef = useRef<HTMLDivElement>(null);
 
@@ -62,13 +61,6 @@ export default function CoverLetter() {
           placeholder="Job Position"
           value={JOB_POSITION}
           onChange={(e) => setJobPosition(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={ME}
-          onChange={(e) => setMe(e.target.value)}
           className="border p-2 rounded"
         />
       </div>
